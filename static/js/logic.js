@@ -27,7 +27,7 @@ function createFeatures(earthquakeData) {
     return 0
     else return features.geometry.coordinates[2]
   };
-// Returning a colored circle marker according to the size of the quake and of the effected area / setting opacity, radius, fillcolor, etc.
+// Returning a colored circle marker according to the size of the earthquake and of the effected area of it / setting opacity, radius, fillcolor, etc.
   let earthquakes = L.geoJSON(earthquakeData, {
     onEachFeature: onEachFeature,
     pointToLayer: function(features, latlng) {
@@ -82,9 +82,7 @@ function createMap(earthquakes) {
     layers: [street, earthquakes]
   });
 
-  // Create a layer control.
-  // Pass it our baseMaps and overlayMaps.
-  // Add the layer control to the map.
+  // Creating and adding layer control to the map
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
