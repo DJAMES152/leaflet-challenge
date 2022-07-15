@@ -10,7 +10,7 @@ function createFeatures(earthquakeData) {
   function onEachFeature(features, layer) {
     layer.bindPopup(`<h3>${features.properties.place}</h3><hr><p>${new Date(features.properties.time)}</p>`);
   }
-// Creating colors for earthquake size chart acording to the earthquake size and magnitude
+// Creating colors for earthquake size chart according to the earthquake size and magnitude(0-2.5, 2.5-5, 5-7, 7+)
   function changeColor(features) {
     if (features.properties.mag > 7)
     return 'pink'
