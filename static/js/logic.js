@@ -10,7 +10,7 @@ function createFeatures(earthquakeData) {
   function onEachFeature(features, layer) {
     layer.bindPopup(`<h3>${features.properties.place}</h3><hr><p>${new Date(features.properties.time)}</p>`);
   }
-
+// Creating colors for earthquake size chart
   function changeColor(features) {
     if (features.properties.mag > 7)
     return 'yellow'
@@ -27,7 +27,7 @@ function createFeatures(earthquakeData) {
     return 0
     else return features.geometry.coordinates[2]
   };
-
+// Returning a colored circle marker according to the size of the quake and of the effected area
   let earthquakes = L.geoJSON(earthquakeData, {
     onEachFeature: onEachFeature,
     pointToLayer: function(features, latlng) {
