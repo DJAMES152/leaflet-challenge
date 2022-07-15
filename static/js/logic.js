@@ -13,13 +13,13 @@ function createFeatures(earthquakeData) {
 // Creating colors for earthquake size chart acording to the earthquake size and magnitude
   function changeColor(features) {
     if (features.properties.mag > 7)
-    return 'yellow'
-    else if (features.properties.mag > 5)
     return 'pink'
+    else if (features.properties.mag > 5)
+    return 'violet'
     else if (features.properties.mag > 2.5)
-    return 'black'
-    else 
     return 'purple'
+    else 
+    return 'black'
   };
 
   function changeSize(features) {
@@ -60,7 +60,7 @@ function createMap(earthquakes) {
     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
   });
 
-  // Creating the baseMap giving Street Map / Topographic Map views alongside Earthquakes / Tectonic Plates data
+  // Creating the baseMap giving optional Street Map / Topographic Map views alongside optional Earthquakes / Tectonic Plates data
   var baseMaps = {
     "Street Map": street,
     "Topographic Map": topo
@@ -96,7 +96,7 @@ function createMap(earthquakes) {
 
     let div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 2.5, 5, 7],
-        colors = ['yellow', 'pink', 'black', 'purple'];
+        colors = ['pink', 'violet', 'purple', 'black'];
 
     for (let i = 0; i < grades.length; i++) {
         div.innerHTML +=
